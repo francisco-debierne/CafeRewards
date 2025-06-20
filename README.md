@@ -191,9 +191,6 @@ Based on the processed data, here are the answers to the analytical questions:
 
 **Answer: Web channel with 51.03% completion rate**
 
-#### Channel Effectiveness Visualization
-![Channel Effectiveness](visualizations/channel_effectiveness.png)
-
 #### Detailed Channel Performance Table
 | Channel | Total Offers Sent | Offers Completed | Completion Rate | Avg Completion Time (hrs) | Total Revenue |
 |---------|------------------|------------------|-----------------|--------------------------|---------------|
@@ -212,8 +209,6 @@ Based on the processed data, here are the answers to the analytical questions:
 
 **Answer: Significant differences across age groups, with 65+ showing highest completion engagement**
 
-#### Age Distribution Visualization
-![Age Distribution](visualizations/age_distribution.png)
 
 #### Age Group Performance Summary
 | Age Group | Completed Count | Not Completed Count | Total Customers | Completion Rate |
@@ -225,8 +220,6 @@ Based on the processed data, here are the answers to the analytical questions:
 | 55-64     | 2,891          | 529                 | 3,420           | 84.53%          |
 | 65+       | 3,554          | 709                 | 4,263           | 83.37%          |
 
-#### Age Distribution Percentages
-![Age Distribution Analysis](visualizations/age_distribution_analysis.png)
 
 ```
 Distribution Analysis:
@@ -250,9 +243,6 @@ Distribution Analysis:
 ### 3. What is the average time customers take to complete an offer after receiving it?
 
 **Answer: Overall average completion time is 73.2 hours (approximately 3 days)**
-
-#### Offer Performance Analysis
-![Offer Performance](visualizations/offer_performance_analysis.png)
 
 #### Completion Time Summary Table
 | Offer Type | Avg Completion Time | Total Completions | Completion Rate |
