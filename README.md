@@ -30,8 +30,6 @@ graph TB
             G1[(gold.channel_effectiveness)]
             G2[(gold.age_distribution_analysis)]
             G3[(gold.offer_completion_metrics)]
-            G4[(gold.customer_segments)]
-            G5[(gold.executive_dashboard)]
         end
         
         subgraph "Analytics Views"
@@ -62,8 +60,6 @@ graph TB
     S4 --> G1
     S4 --> G2
     S4 --> G3
-    S1 --> G4
-    S3 --> G4
     
     G1 --> V1
     G2 --> V2
@@ -72,7 +68,6 @@ graph TB
     V1 --> VIZ
     V2 --> VIZ
     V3 --> VIZ
-    G5 --> RPT
 ```
 
 ### Cloud Deployment Architecture
@@ -139,7 +134,6 @@ The solution is provided as a **Databricks Notebook** (`databricks-pipeline-note
 5. Gold layer business metrics
 6. Analytics views creation
 7. Data visualizations
-8. Summary and insights
 
 ## 🚀 Run Instructions
 
@@ -150,43 +144,44 @@ The solution is provided as a **Databricks Notebook** (`databricks-pipeline-note
 
 ### Setup Steps
 
-1. **Upload Data Files** to DBFS:
+1. **Clone the Repository**:
    ```bash
-   # Upload to /FileStore/tables/ or configure path in Config class
-   - customers.csv
-   - offers.csv
-   - events.csv
-   - data_dictionary.csv
+   # In Databricks workspace:
+   # 1. Go to Repos section
+   # 2. Click "Add Repo"
+   # 3. Enter the repository URL
+   # 4. Click "Create"
    ```
 
-2. **Import Notebook**:
-   - In Databricks workspace, click "Import"
-   - Select the `databricks-pipeline-notebook.py` file
-   - Choose destination folder
+2. **Navigate to the Notebook**:
+   - Open the cloned repository
+   - Locate `databricks-pipeline-notebook.py`
+   - Open the notebook
 
-3. **Configure Paths** (if needed):
-   ```python
-   # Update in Config class
-   DATA_PATH = "/FileStore/tables"  # Your data location
-   ```
-
-4. **Create Cluster**:
+3. **Create or Select a Cluster**:
    - Runtime: 11.3 LTS or above
    - Node type: Standard_DS3_v2 (or equivalent)
    - Min workers: 1, Max workers: 4 (for Community Edition: 0 workers)
 
-5. **Run the Notebook**:
+4. **Run the Pipeline**:
    - Attach notebook to cluster
    - Run all cells sequentially (Cmd/Ctrl + A, then Shift + Enter)
    - Total execution time: ~5-10 minutes
 
 ### Execution Flow
 1. Creates Bronze, Silver, and Gold database schemas
-2. Ingests raw CSV data into Bronze tables
+2. Ingests raw CSV data from the repository into Bronze tables
 3. Transforms and cleanses data into Silver tables
 4. Aggregates business metrics into Gold tables
 5. Creates analytical views
 6. Generates visualizations and insights
+
+### Data Location
+The raw data files are already included in the repository:
+- `/data/customers.csv`
+- `/data/offers.csv`
+- `/data/events.csv`
+- `/data/data_dictionary.csv`
 
 ## 📊 Analysis Results
 
@@ -323,19 +318,7 @@ This approach ensures data quality while maintaining transparency and traceabili
 - **Partitioning**: Consider partitioning by date for production workloads
 - **Caching**: Frequently accessed tables can be cached for better performance
 
-## 🔄 Future Enhancements
-
-1. **Real-time Processing**: Implement Structured Streaming for live data
-2. **ML Integration**: Add predictive models for offer recommendation
-3. **Advanced Segmentation**: Implement RFM analysis and cohort analysis
-4. **Automated Orchestration**: Schedule with Databricks Jobs or Airflow
-5. **Data Quality Monitoring**: Implement Great Expectations or similar
-
-## 📝 License
-
-This project is part of a technical assessment for a Data Engineering position.
-
 ---
-**Author**: Data Engineering Candidate  
+**Author**: Data Engineering Team  
 **Date**: November 2024  
 **Databricks Runtime**: 11.3 LTS or above
